@@ -1,3 +1,5 @@
+package io.github.homxuwang.util;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import java.util.HashMap;
@@ -50,7 +52,7 @@ import org.opengis.referencing.crs.CoordinateReferenceSystem;
  * @author Administrator
  */
 public class FileFormat {
-    public static Map geojson2Shape(String jsonPath, String shpPath) {
+    public Map geojson2Shape(String jsonPath, String shpPath) {
         Map map = new HashMap();
         GeometryJSON gjson = new GeometryJSON();
         try {
@@ -158,7 +160,7 @@ public class FileFormat {
      * @param jsonPath
      * @return
      */
-    public static Map shape2Geojson(String shpPath, String jsonPath) {
+    public Map shape2Geojson(String shpPath, String jsonPath) {
         Map map = new HashMap();
 
         FeatureJSON fjson = new FeatureJSON();
@@ -225,7 +227,7 @@ public class FileFormat {
         return map;
     }
 
-    public static void append2File(String JsonPath, String messsage) {
+    public void append2File(String JsonPath, String messsage) {
         try {
             File f = new File(JsonPath);//向指定文本框内写入
             FileWriter fw = new FileWriter(f);
@@ -234,7 +236,7 @@ public class FileFormat {
         } catch (Exception e) {}
     }
 
-    public static String readFileContent(String fileName) {
+    public String readFileContent(String fileName) {
         File file = new File(fileName);
         BufferedReader reader = null;
         StringBuffer sbf = new StringBuffer();
